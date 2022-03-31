@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mei
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mei
+  template:
+    metadata:
+      labels:
+        app: mei
+    spec:
+      containers:
+      - image: okteto.dev/mei:latest
+        name: mei
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: ProxySite
+          value: "mirror.umd.edu"
+        - name: Vless_UUID
+          value: "6180c157-f07f-4264-a587-1ef7609598d2"
+        - name: Vless_Path
+          value: "/mei123"
+        - name: Vmess_UUID
+          value: "6180c157-f07f-4264-a587-1ef7609598d2"
+        - name: Vmess_Path
+          value: "/mei124"
+        - name: Share_Path
+          value: "/Share123"
