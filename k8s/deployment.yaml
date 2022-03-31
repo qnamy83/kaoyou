@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mei
+  name: yei
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mei
+      app: yei
   template:
     metadata:
       labels:
-        app: mei
+        app: yei
     spec:
       containers:
       - image: okteto.dev/mei:latest
-        name: mei
+        name: yei
         ports:
         - containerPort: 8080
         env:
@@ -23,11 +23,11 @@ spec:
         - name: ProxySite
           value: "mirror.umd.edu"
         - name: Vless_UUID
-          value: "6180c157-f07f-4264-a587-1ef7609598d2"
+          value: "0bd76543-c6c6-4500-b4c0-37e9cc88dadd"
         - name: Vless_Path
           value: "/mei123"
         - name: Vmess_UUID
-          value: "6180c157-f07f-4264-a587-1ef7609598d2"
+          value: "0bd76543-c6c6-4500-b4c0-37e9cc88dadd"
         - name: Vmess_Path
           value: "/mei124"
         - name: Share_Path
